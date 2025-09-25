@@ -7,7 +7,7 @@
 
 ### 👨‍💻 About Me:
 
-I'm a [student/developer/enthusiast] with a passion for building things for the web.
+I'm a Binus Student with a passion for building things for the Software, Web, etc.
 
 - 🔭 I’m currently working on **Uma Musume Bot**.
 - 🌱 I’m currently learning **Kotlin, JavaScipt, Python, SQL, etc.**.
