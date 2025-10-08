@@ -9,7 +9,7 @@
 
 I'm a Binus Student with a passion for building things for the Software, Web, etc.
 
-- 🔭 I’m currently working on **Uma Musume Bot**.
+- 🔭 I’m currently working on **Uma Musume Bot and Uma Musume Website**.
 - 🌱 I’m currently learning **Kotlin, JavaScipt, Python, SQL, etc.**.
 - 👯 I’m looking to collaborate on **Games Industy**.
 - 🤔 I’m looking for help with **Javascript Project**.
