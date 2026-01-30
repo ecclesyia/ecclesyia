@@ -5,21 +5,26 @@
 
 ---
 
-### 👨‍💻 About Me:
+### About Me:
 
-I'm a Binus Student with a passion for building things for the Software, Web, etc.
+I'm a Student with a passion for building things for the Software, Web, etc.
 
-- 🔭 I’m currently working on **Uma Musume Bot and Uma Musume Website**.
-- 🌱 I’m currently learning **Kotlin, JavaScipt, Python, SQL, etc.**.
-- 👯 I’m looking to collaborate on **Games Industy**.
-- 🤔 I’m looking for help with **Javascript Project**.
-- 💬 Ask me about **Algorithm, Data Structure, etc**.
-- 📫 How to reach me: **Coming Soon**
-- 😄 Pronouns: **he/him**
+Detail of me:
+- Pronouns: **he/him**.
+- College/University: **Binus**.
+- Major: **Computer Science - Software Engineering**.
+
+Fun fact of me:
+- Working on **Uma Musume Discord Bot**.
+- Currently learning and studying **Kotlin, JavaScipt, Python, SQL, Website, etc.**.
+- Looking to collaborate in **Games Industy** it can be other platform.
+- Seeking for help in **Javascript Project**.
+- You can ask me about **Algorithm, Data Structure, etc**.
+- How to reach me: **Coming Soon**.
 
 ---
 
-### 🛠️ Languages and Tools:
+### Languages and Tools:
 
 <p align="left">
     <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>
@@ -32,7 +37,7 @@ I'm a Binus Student with a passion for building things for the Software, Web, et
 
 ---
 
-### 📊 My GitHub Stats:
+### My GitHub Stats:
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=ecclesyia&show_icons=true&theme=tokyonight" alt="Your GitHub Stats" />
@@ -43,7 +48,4 @@ I'm a Binus Student with a passion for building things for the Software, Web, et
 ---
 
 ### 🔗 Connect with me:
-<p align="left">
-<a href="https://linkedin.com/in/your-linkedin-username" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Ecclesiates Sihombing" height="30" width="40" /></a>
-<a href="https://twitter.com/your-twitter-handle" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ecclesyia" height="30" width="40" /></a>
-</p>
+-coming soon
