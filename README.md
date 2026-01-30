@@ -48,4 +48,4 @@ Fun fact of me:
 ---
 
 ### 🔗 Connect with me:
--coming soon
+- coming soon
