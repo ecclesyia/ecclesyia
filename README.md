@@ -9,15 +9,15 @@
 
 I'm a Student with a passion for building things for the Software, Web, etc.
 
-Detail of me:
+My details:
 - Pronouns: **he/him**.
 - College/University: **Binus**.
 - Major: **Computer Science - Software Engineering**.
 
 Fun fact of me:
 - Working on **Uma Musume Discord Bot**.
-- Currently learning and studying **Kotlin, JavaScipt, Python, SQL, Website, etc.**.
-- Looking to collaborate in **Games Industy** it can be other platform.
+- Currently learning and studying **Kotlin, JavaScipt, Python, SQL, GdScript, etc.**.
+- Looking to collaborate in **Games Industy** it can be other stuff.
 - Seeking for help in **Javascript Project**.
 - You can ask me about **Algorithm, Data Structure, etc**.
 - How to reach me: **Coming Soon**.
