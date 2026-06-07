@@ -15,7 +15,7 @@ My details:
 - Major: **Computer Science - Software Engineering**.
 
 Fun fact of me:
-- Working on **Uma Musume Discord Bot**.
+- Working on **Uma Musume Discord Bot & Portofolio Website**.
 - Currently learning and studying **Kotlin, JavaScipt, Python, SQL, GdScript, etc.**.
 - Looking to collaborate in **Games Industy** it can be other stuff.
 - Seeking for help in **Javascript Project**.
