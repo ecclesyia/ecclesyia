@@ -20,7 +20,7 @@ Fun fact of me:
 - Looking to collaborate in **Games Industy** it can be other stuff.
 - Seeking for help in **Javascript Project**.
 - You can ask me about **Algorithm, Data Structure, etc**.
-- How to reach me: **[working on portofolio website]**.
+- How to reach me: **ecclesyia.netlify.app**.
 
 ---
 
