@@ -49,5 +49,5 @@ Fun fact of me:
 
 ### 🔗 Connect with me:
 - [portfolio](ecclesyia.netlify.app) 
-- ecclesiatesnsbusiness@gmail.com - bussiness email
+- ecclesiatesnsbusiness@gmail.com - business email
 - [Linkedin](https://www.linkedin.com/in/ecclesiates)
