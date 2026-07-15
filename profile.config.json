@@ -17,7 +17,7 @@
     "primary": "Software Architecture",
     "direction": "Architecture, programming & design",
     "themes": "Algorithms / Software Development",
-    "narrative": "I am focused on understanding systems architecture, programming paradigms, and structural project design to build robust software systems."
+    "narrative": "I am currently focusing on exploring whatever captures my interest, whether it is programming, mathematics, data science, or mechanics. Deepening my understanding of these fields is a fundamental part of satisfying my curiosity and learning journey."
   },
   "focus": [
     {
@@ -73,7 +73,7 @@
     }
   ],
   "activity": {
-    "enabled": true,
+    "enabled": false,
     "limit": 6
   },
   "appearance": {
