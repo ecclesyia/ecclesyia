@@ -1,6 +1,7 @@
 import urllib.request
 import json
 import re
+import os
 from datetime import datetime
 
 def fetch_json(url):
@@ -61,35 +62,109 @@ def get_stats():
     for y in sorted(by_year.keys(), reverse=True):
         stats_md.append(f"| {y} | {by_year[y]} |")
     
-    return "\n".join(stats_md)
+    stats_content = "\n".join(stats_md)
+    
+    return stats_content, duration_str, total_public_repos
+
+def generate_svg(duration_str, total_repos, output_dir):
+    # Ensure output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+    
+    svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" width="800" height="360" viewBox="0 0 800 360">
+  <style>
+    .terminal {{ font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace; font-size: 14px; fill: #abb2bf; }}
+    .title-text {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: #8b949e; font-weight: 500; }}
+    .prompt {{ fill: #98c379; }}
+    .command {{ fill: #e5c07b; }}
+    .accent {{ fill: #61afef; font-weight: bold; }}
+    .label {{ fill: #56b6c2; }}
+    .value {{ fill: #c9d1d9; }}
+    .subtle {{ fill: #5c6370; }}
+    .cursor {{ animation: blink 1s step-end infinite; }}
+    @keyframes blink {{ 50% {{ fill: transparent; }} }}
+  </style>
+  
+  <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+  <rect x="15" y="15" width="770" height="330" rx="8" ry="8" fill="#0b0f19" filter="url(#shadow)"/>
+  
+  <path d="M15,15 h770 a8,8 0 0 1 8,8 v22 a0,0 0 0 1 0,0 h-786 a0,0 0 0 1 0,-0 v-22 a8,8 0 0 1 8,-8 z" fill="#121620" />
+  
+  <circle cx="35" cy="30" r="6" fill="#ff5f56"/>
+  <circle cx="55" cy="30" r="6" fill="#ffbd2e"/>
+  <circle cx="75" cy="30" r="6" fill="#27c93f"/>
+  
+  <text x="400" y="34" text-anchor="middle" class="title-text">ecclesyia@binus: ~</text>
+  
+  <g class="terminal">
+    <text x="35" y="75"><tspan class="prompt">ecclesyia@binus:~$</tspan> <tspan class="command">neofetch</tspan></text>
+    
+    <g class="accent">
+      <text x="35" y="115">███████╗</text>
+      <text x="35" y="135">██╔════╝</text>
+      <text x="35" y="155">█████╗  </text>
+      <text x="35" y="175">██╔═══╝  </text>
+      <text x="35" y="195">███████╗</text>
+      <text x="35" y="215">╚══════╝</text>
+    </g>
+    
+    <line x1="160" y1="100" x2="160" y2="310" stroke="#1f2430" stroke-width="1"/>
+    
+    <g transform="translate(180, 0)">
+      <text x="0" y="115"><tspan class="accent">ecclesyia</tspan><tspan class="subtle">@</tspan><tspan class="prompt">binus-university</tspan></text>
+      <text x="0" y="125" class="subtle">-----------------------------</text>
+      
+      <text x="0" y="150"><tspan class="label">OS</tspan><tspan class="subtle">: </tspan><tspan class="value">BINUS OS v2026.7</tspan></text>
+      <text x="0" y="170"><tspan class="label">Host</tspan><tspan class="subtle">: </tspan><tspan class="value">HIMTI Responsi Activist</tspan></text>
+      <text x="0" y="190"><tspan class="label">Kernel</tspan><tspan class="subtle">: </tspan><tspan class="value">Computer Science - Software Engineering</tspan></text>
+      <text x="0" y="210"><tspan class="label">Uptime</tspan><tspan class="subtle">: </tspan><tspan class="value">{duration_str}</tspan></text>
+      <text x="0" y="230"><tspan class="label">Shell</tspan><tspan class="subtle">: </tspan><tspan class="value">zsh 5.9</tspan></text>
+      <text x="0" y="250"><tspan class="label">Editor</tspan><tspan class="subtle">: </tspan><tspan class="value">VS Code, Android Studio</tspan></text>
+      <text x="0" y="270"><tspan class="label">Total Repos</tspan><tspan class="subtle">: </tspan><tspan class="value">{total_repos}</tspan></text>
+      <text x="0" y="290"><tspan class="label">Languages</tspan><tspan class="subtle">: </tspan><tspan class="value">Kotlin, Java, JavaScript, Python, SQL, GDScript</tspan></text>
+    </g>
+
+    <text x="35" y="330"><tspan class="prompt">ecclesyia@binus:~$</tspan> <rect class="cursor" x="180" y="317" width="8" height="15" fill="#58a6ff"/></text>
+  </g>
+</svg>"""
+
+    svg_path = os.path.join(output_dir, "console.svg")
+    with open(svg_path, "w", encoding="utf-8") as f:
+        f.write(svg_template)
+    print("Terminal console SVG generated successfully.")
 
 def update_readme():
     try:
-        stats_content = get_stats()
-        
-        # Resolve path dynamically for local testing and GitHub Actions
-        import os
+        # Determine paths dynamically
         if os.environ.get("GITHUB_ACTIONS"):
-            readme_path = "README.md"
+            base_dir = "."
         else:
-            readme_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md")
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            
+        readme_path = os.path.join(base_dir, "README.md")
+        assets_dir = os.path.join(base_dir, "assets")
         
+        # Get dynamic stats
+        stats_content, duration_str, total_public_repos = get_stats()
+        
+        # 1. Update README.md
         with open(readme_path, "r", encoding="utf-8") as f:
             content = f.read()
 
-        # Locate tags and replace everything between them
         pattern = r"(<!-- START_SECTION:dynamic_stats -->).*?(<!-- END_SECTION:dynamic_stats -->)"
         replacement = f"\\1\n{stats_content}\n\\2"
-        
         updated_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
         
         with open(readme_path, "w", encoding="utf-8") as f:
             f.write(updated_content)
-            
         print("README.md updated successfully with dynamic stats.")
         
+        # 2. Generate updated console SVG
+        generate_svg(duration_str, total_public_repos, assets_dir)
+        
     except Exception as e:
-        print(f"Error updating README: {e}")
+        print(f"Error updating README and SVG: {e}")
 
 if __name__ == "__main__":
     update_readme()

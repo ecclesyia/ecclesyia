@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="360" viewBox="0 0 800 360">
+  <style>
+    .terminal { font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace; font-size: 14px; fill: #abb2bf; }
+    .title-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: #8b949e; font-weight: 500; }
+    .prompt { fill: #98c379; }
+    .command { fill: #e5c07b; }
+    .accent { fill: #61afef; font-weight: bold; }
+    .label { fill: #56b6c2; }
+    .value { fill: #c9d1d9; }
+    .subtle { fill: #5c6370; }
+    .cursor { animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { fill: transparent; } }
+  </style>
+  
+  <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+    <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+  </filter>
+  <rect x="15" y="15" width="770" height="330" rx="8" ry="8" fill="#0b0f19" filter="url(#shadow)"/>
+  
+  <path d="M15,15 h770 a8,8 0 0 1 8,8 v22 a0,0 0 0 1 0,0 h-786 a0,0 0 0 1 0,-0 v-22 a8,8 0 0 1 8,-8 z" fill="#121620" />
+  
+  <circle cx="35" cy="30" r="6" fill="#ff5f56"/>
+  <circle cx="55" cy="30" r="6" fill="#ffbd2e"/>
+  <circle cx="75" cy="30" r="6" fill="#27c93f"/>
+  
+  <text x="400" y="34" text-anchor="middle" class="title-text">ecclesyia@binus: ~</text>
+  
+  <g class="terminal">
+    <text x="35" y="75"><tspan class="prompt">ecclesyia@binus:~$</tspan> <tspan class="command">neofetch</tspan></text>
+    
+    <g class="accent">
+      <text x="35" y="115">███████╗</text>
+      <text x="35" y="135">██╔════╝</text>
+      <text x="35" y="155">█████╗  </text>
+      <text x="35" y="175">██╔═══╝  </text>
+      <text x="35" y="195">███████╗</text>
+      <text x="35" y="215">╚══════╝</text>
+    </g>
+    
+    <line x1="160" y1="100" x2="160" y2="310" stroke="#1f2430" stroke-width="1"/>
+    
+    <g transform="translate(180, 0)">
+      <text x="0" y="115"><tspan class="accent">ecclesyia</tspan><tspan class="subtle">@</tspan><tspan class="prompt">binus-university</tspan></text>
+      <text x="0" y="125" class="subtle">-----------------------------</text>
+      
+      <text x="0" y="150"><tspan class="label">OS</tspan><tspan class="subtle">: </tspan><tspan class="value">BINUS OS v2026.7</tspan></text>
+      <text x="0" y="170"><tspan class="label">Host</tspan><tspan class="subtle">: </tspan><tspan class="value">HIMTI Responsi Activist</tspan></text>
+      <text x="0" y="190"><tspan class="label">Kernel</tspan><tspan class="subtle">: </tspan><tspan class="value">Computer Science - Software Engineering</tspan></text>
+      <text x="0" y="210"><tspan class="label">Uptime</tspan><tspan class="subtle">: </tspan><tspan class="value">3 Years, 6 Months</tspan></text>
+      <text x="0" y="230"><tspan class="label">Shell</tspan><tspan class="subtle">: </tspan><tspan class="value">zsh 5.9</tspan></text>
+      <text x="0" y="250"><tspan class="label">Editor</tspan><tspan class="subtle">: </tspan><tspan class="value">VS Code, Android Studio</tspan></text>
+      <text x="0" y="270"><tspan class="label">Total Repos</tspan><tspan class="subtle">: </tspan><tspan class="value">31</tspan></text>
+      <text x="0" y="290"><tspan class="label">Languages</tspan><tspan class="subtle">: </tspan><tspan class="value">Kotlin, Java, JavaScript, Python, SQL, GDScript</tspan></text>
+    </g>
+
+    <text x="35" y="330"><tspan class="prompt">ecclesyia@binus:~$</tspan> <rect class="cursor" x="180" y="317" width="8" height="15" fill="#58a6ff"/></text>
+  </g>
+</svg>

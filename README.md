@@ -1,4 +1,6 @@
-# Hi, I'm Ecclesiates Natarios Sihombing
+<p align="center">
+  <img src="./assets/console.svg" alt="ecclesyia Terminal Console" width="100%">
+</p>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=ecclesyia&color=blueviolet&style=flat-square&label=Profile+Views" alt="Profile Views">
