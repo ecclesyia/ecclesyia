@@ -1,53 +1,41 @@
-<h1 align="center">Hi there, I'm Ecclesiates N Sihombing 👋</h1>
-<h3 align="center">A Passionate Software Developer from Binus University</h3>
+# Ecclesiates Natarios Sihombing
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=your-username&label=Profile%20views&color=0e75b6&style=flat" alt="your-username" /> </p>
+Student in Computer Science (Software Engineering) at BINUS University, working as a HIMTI Responsi Activist. Passionate about building software, web applications, and game development.
 
----
+## Profile Summary
 
-### About Me:
+* Coding since: January 2023 (3 years, 6 months)
+* Pronouns: He / Him
+* Education: BINUS University (Computer Science - Software Engineering)
+* Location: Bekasi, Indonesia
 
-I'm a Student with a passion for building things for the Software, Web, etc.
+## Tech Stack and Tools
 
-My details:
-- Pronouns: **he/him**.
-- College/University: **Binus**.
-- Major: **Computer Science - Software Engineering**.
+* Languages: Kotlin, Java, JavaScript, Python, GDScript, SQL, HTML, CSS
+* Frameworks: React, Next.js
+* Tools: Git, VS Code, Android Studio, PyCharm
 
-Fun fact of me:
-- Working on **Uma Musume Discord Bot & passions projects**.
-- Currently learning and studying **Kotlin, JavaScipt, Python, SQL, GdScript, etc.**.
-- Looking to collaborate in **Games Industy** it can be other stuff.
-- Seeking for help in **Javascript Project**.
-- You can ask me about **Algorithm, Data Structure, etc**.
-- How to reach me: **ecclesyia.netlify.app**.
+## Repository History
 
----
+The table below shows the number of public repositories created on GitHub per year.
 
-### Languages and Tools:
+| Year | Repositories Created | Key Focus / Projects |
+|---|---|---|
+| 2026 | 19 | Bot development, JavaScript, and Kotlin applications |
+| 2025 | 3 | Web applications and course materials |
+| 2024 | 3 | Web pages and assignment solutions |
+| 2023 | 6 | Programming fundamentals, C/C++ exercises |
+| Total | 31 | Active development |
 
-<p align="left">
-    <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>
-    <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a>
-    <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a>
-    <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a>
-    <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a>
-</p>
+## Core Projects
 
----
+* ecclesyia/portofolio: A portfolio website built with HTML and CSS to track and share projects.
+* Bot Development: Working on the Uma Musume Discord Bot project and other passion projects.
 
-### My GitHub Stats:
+## Connect
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ecclesyia&show_icons=true&theme=tokyonight" alt="Your GitHub Stats" />
-  <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ecclesyia&layout=compact&theme=tokyonight" alt="Your Top Languages" />
-</p>
-
----
-
-### 🔗 Connect with me:
-- [portfolio](https://ecclesyia.netlify.app) 
-- ecclesiatesnsbusiness@gmail.com - business email
-- [Linkedin](https://www.linkedin.com/in/ecclesiates)
+* Portfolio: https://ecclesyia.netlify.app
+* Email: ecclesiatesnsbusiness@gmail.com
+* LinkedIn: https://www.linkedin.com/in/ecclesiates-sihombing
+* Instagram: https://www.instagram.com/ecclesiates.sihombing/
+* X / Twitter: https://x.com/ecclesyia
