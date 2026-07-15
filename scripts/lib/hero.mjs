@@ -18,6 +18,10 @@ const paletteDefinitions = {
   solar: {
     dark: { backgroundStart: "#090D14", backgroundEnd: "#1D1720", panel: "#10141C", primary: "#F3F4F6", muted: "#7C8495", cyan: "#22D3EE", blue: "#60A5FA", violet: "#F59E0B", green: "#34D399", red: "#FB7185", scanBlend: "screen" },
     light: { backgroundStart: "#FBFCFE", backgroundEnd: "#FFF8ED", panel: "#FFFFFF", primary: "#292524", muted: "#78716C", cyan: "#0891B2", blue: "#2563EB", violet: "#B45309", green: "#047857", red: "#BE123C", scanBlend: "multiply" }
+  },
+  mono: {
+    dark: { backgroundStart: "#000000", backgroundEnd: "#0A0A0A", panel: "#121212", primary: "#FFFFFF", muted: "#6E6E6E", cyan: "#FFFFFF", blue: "#E0E0E0", violet: "#FFFFFF", green: "#FFFFFF", red: "#6E6E6E", scanBlend: "screen" },
+    light: { backgroundStart: "#FFFFFF", backgroundEnd: "#FAFAFA", panel: "#FFFFFF", primary: "#000000", muted: "#666666", cyan: "#000000", blue: "#242424", violet: "#000000", green: "#000000", red: "#666666", scanBlend: "multiply" }
   }
 };
 
@@ -73,7 +77,6 @@ function buildProfileLines(config) {
     { type: "row", key: "Base", value: config.profile.location },
     { type: "row", key: "Status", value: config.profile.status },
     { type: "row", key: "Experience", value: `Since Jan 2023 (${durationStr})` },
-    { type: "row", key: "Repositories", value: `${totalRepos} public repos` },
     { type: "blank" },
     { type: "section", value: "RESEARCH.NODE" },
     { type: "row", key: "Primary", value: config.research.primary },
@@ -87,10 +90,7 @@ function buildProfileLines(config) {
     lines.push({ type: "row", key: project.name, value: project.heroLabel });
   });
 
-  lines.push({ type: "blank" }, { type: "section", value: "GRID.LINKS" });
-  config.links.slice(0, 2).forEach((link) => {
-    lines.push({ type: "row", key: link.label, value: link.value });
-  });
+  lines.push({ type: "blank" });
   lines.push({ type: "footer", value: "signal.locked > PROFILE / BUILD / SHARE" });
 
   return lines;
@@ -235,7 +235,7 @@ function createHeroSvg(config, colors, size, portrait) {
   const liveX = titlebar.x + titlebar.width - 138;
   const cursorY = layout.system.y + (profileLines.length - 1) * layout.system.lineHeight - 15;
   const terminalUser = config.profile.username.slice(0, isDesktop ? 22 : 14);
-  const footerLabel = config.focus.slice(0, 3).map((item) => item.name.toUpperCase()).join(" / ").slice(0, 64);
+  const footerLabel = config.focus.slice(0, 4).map((item) => item.name.toUpperCase()).join(" / ").slice(0, 96);
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${layout.width}" height="${layout.height}" viewBox="0 0 ${layout.width} ${layout.height}" role="img" aria-labelledby="title description">
 <title id="title">${escapeXml(config.profile.name)} - ${escapeXml(config.profile.headline)}</title>

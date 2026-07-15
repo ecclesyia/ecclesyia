@@ -78,7 +78,7 @@ export function validateConfig(config) {
 
   assert(config.activity && typeof config.activity.enabled === "boolean", "activity.enabled must be true or false.");
   assert(Number.isInteger(config.activity.limit) && config.activity.limit >= 1 && config.activity.limit <= 10, "activity.limit must be between 1 and 10.");
-  assert(["signal", "ocean", "solar"].includes(config.appearance?.palette), "appearance.palette must be signal, ocean, or solar.");
+  assert(["signal", "ocean", "solar", "mono"].includes(config.appearance?.palette), "appearance.palette must be signal, ocean, solar, or mono.");
   assertText(config.footer, "footer", 120);
 
   return config;

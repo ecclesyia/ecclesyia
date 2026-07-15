@@ -64,31 +64,79 @@ def update_readme():
         cmd = ["npm", "run", "generate", "--", "--source", "portrait.png"]
         subprocess.run(cmd, cwd=base_dir, shell=True, check=True)
         
-        # 5. Inject/Replace Yearly Repository History at the bottom of README
-        history_section = "\n## Repository History\n\nThe table below shows the distribution of public repositories created per year:\n\n"
-        history_section += "| Year | Repositories Created |\n"
-        history_section += "| :--- | :--- |\n"
-        for y in sorted(by_year.keys(), reverse=True):
-            history_section += f"| {y} | {by_year[y]} |\n"
-            
+        # 5. Load generated README to inject Views Badge and monochrome widgets
         with open(readme_path, "r", encoding="utf-8") as f:
             readme_content = f.read()
             
+        # A. Inject Views Badge right under the Terminal Console picture banner
+        views_badge = """
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=ecclesyia&color=black&style=flat-square&label=Profile+Views" alt="Profile Views">
+</p>
+"""
+        if "Profile+Views" not in readme_content:
+            pattern_views = r"(</picture>\s*</p>)"
+            readme_content = re.sub(pattern_views, r"\1\n" + views_badge, readme_content)
+            
+        # B. Generate the dynamic monochrome extra sections (History, Stats, Tech Grid, Connect)
+        extra_sections = "\n## Repository History\n\nThe table below shows the distribution of public repositories created per year:\n\n"
+        extra_sections += "| Year | Repositories Created |\n"
+        extra_sections += "| :--- | :--- |\n"
+        for y in sorted(by_year.keys(), reverse=True):
+            extra_sections += f"| {y} | {by_year[y]} |\n"
+            
+        extra_sections += """
+## GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ecclesyia&theme=dark&hide_border=true&background=000000&fire=ffffff&ring=ffffff&currStreakNum=ffffff&sideNums=ffffff&sideLabels=6e6e6e&currStreakLabel=ffffff" alt="GitHub Streak Stats" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=ecclesyia&show_icons=true&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&count_private=true" alt="GitHub Stats" />
+</p>
+
+## Tools and Technologies
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=kotlin,java,js,py,mysql,godot,html,css,react,git,androidstudio,pycharm,vscode&theme=dark" alt="My Skills" />
+</p>
+
+## Connect
+
+<p align="center">
+  <a href="https://ecclesyia.netlify.app" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=netlify&logoColor=white" alt="Portfolio" />
+  </a>
+  <a href="mailto:ecclesiatesnsbusiness@gmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/Email-000000?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+  <a href="https://www.linkedin.com/in/ecclesiates" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://www.instagram.com/ecclesiates.sihombing/" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-000000?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
+  </a>
+  <a href="https://x.com/ecclesyia" target="_blank">
+    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" />
+  </a>
+</p>
+"""
+
+        # Replace or append the dynamic extra sections
         if "## Repository History" in readme_content:
-            # Replace old history section
-            pattern = r"## Repository History.*"
-            updated_content = re.sub(pattern, history_section.strip(), readme_content, flags=re.DOTALL)
+            pattern_history = r"## Repository History.*"
+            updated_content = re.sub(pattern_history, extra_sections.strip(), readme_content, flags=re.DOTALL)
         else:
-            # Find the footer and insert before it, or append at the end
             parts = readme_content.rsplit("---", 1)
             if len(parts) == 2:
-                updated_content = parts[0] + "---\n" + history_section + "\n---\n" + parts[1]
+                updated_content = parts[0] + "---\n" + extra_sections + "\n---\n" + parts[1]
             else:
-                updated_content = readme_content.strip() + "\n" + history_section
+                updated_content = readme_content.strip() + "\n" + extra_sections
                 
         with open(readme_path, "w", encoding="utf-8") as f:
             f.write(updated_content)
-        print("Repository history successfully appended/updated in README.md.")
+        print("Dynamic monochrome sections successfully injected into README.md.")
         
     except Exception as e:
         print(f"Error during update process: {e}")

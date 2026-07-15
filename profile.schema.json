@@ -106,7 +106,7 @@
       "additionalProperties": false,
       "required": ["palette"],
       "properties": {
-        "palette": { "enum": ["signal", "ocean", "solar"] }
+        "palette": { "enum": ["signal", "ocean", "solar", "mono"] }
       }
     },
     "footer": { "type": "string", "minLength": 4, "maxLength": 120 }
