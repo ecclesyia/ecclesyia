@@ -71,7 +71,7 @@ def update_readme():
         # A. Inject Views Badge right under the Terminal Console picture banner
         views_badge = """
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=ecclesyia&color=black&style=flat-square&label=Profile+Views" alt="Profile Views">
+  <img src="https://komarev.com/ghpvc/?username=ecclesyia&color=000000&style=flat-square&label=Profile+Views" alt="Profile Views">
 </p>
 """
         if "Profile+Views" not in readme_content:

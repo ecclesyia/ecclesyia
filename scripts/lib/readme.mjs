@@ -88,17 +88,9 @@ ${about}
 
 ${renderFocus(config.focus)}
 
-## Featured Work
-
-${renderProjects(config.projects)}
-
 ## Research Direction
 
 ${config.research.narrative}
-
-## Tech Stack
-
-${techStack}
 ${activitySection}
 ---
 
