@@ -1,13 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="360" viewBox="0 0 800 360">
   <style>
-    .terminal { font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace; font-size: 14px; fill: #abb2bf; }
+    .terminal { font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace; font-weight: bold; fill: #abb2bf; }
     .title-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: #8b949e; font-weight: 500; }
     .prompt { fill: #98c379; }
     .command { fill: #e5c07b; }
-    .accent { fill: #61afef; font-weight: bold; }
+    .accent { fill: #61afef; }
     .label { fill: #56b6c2; }
     .value { fill: #c9d1d9; }
     .subtle { fill: #5c6370; }
+    .portrait-color { fill: #56b6c2; font-size: 9px; }
     .cursor { animation: blink 1s step-end infinite; }
     @keyframes blink { 50% { fill: transparent; } }
   </style>
@@ -26,20 +27,34 @@
   <text x="400" y="34" text-anchor="middle" class="title-text">ecclesyia@binus: ~</text>
   
   <g class="terminal">
-    <text x="35" y="75"><tspan class="prompt">ecclesyia@binus:~$</tspan> <tspan class="command">neofetch</tspan></text>
+    <text x="30" y="75" style="font-size: 14px;"><tspan class="prompt">ecclesyia@binus:~$</tspan> <tspan class="command">neofetch</tspan></text>
     
-    <g class="accent">
-      <text x="35" y="115">███████╗</text>
-      <text x="35" y="135">██╔════╝</text>
-      <text x="35" y="155">█████╗  </text>
-      <text x="35" y="175">██╔═══╝  </text>
-      <text x="35" y="195">███████╗</text>
-      <text x="35" y="215">╚══════╝</text>
+    <!-- ASCII Art / Portrait Column -->
+    <g class="portrait-color" style="font-size: 9px;">
+      <text x="30" y="100">::-+++=+==++=.:=.... =*=:-**++-.:.+=</text>
+    <text x="30" y="112">:.:***++****= .:  .  :*=::+**+=+--=-</text>
+    <text x="30" y="124">####%%##%%##*++===+-:-*+==++*+++===:</text>
+    <text x="30" y="136">====+++*++++*++=-=**++*+*#*=+**+*+++</text>
+    <text x="30" y="148">**********+*#+=:=*-::.=-+==++*==+=+=</text>
+    <text x="30" y="160">###########**#*+**+.  .##***+*##****</text>
+    <text x="30" y="172">*#######******#=++=--.=#************</text>
+    <text x="30" y="184">--:::::---:::---::::.-******++=*===+</text>
+    <text x="30" y="196">=--:--------=++:---:.-+*#%#***++   :</text>
+    <text x="30" y="208">#%#*%#-=*+=+=++: ... .:*###**+++:..:</text>
+    <text x="30" y="220">#%##%#++*:::===-  --.-+===:+++++=-:-</text>
+    <text x="30" y="232">***#%#==- .-=+-= --.==:-.. -++++++-.</text>
+    <text x="30" y="244">---=*+--   .== :-- *+...   :**+**#**</text>
+    <text x="30" y="256">***####-  . :: .: :=       .*++*=--=</text>
+    <text x="30" y="268">#%%##*+.   . ......        .+==+-   </text>
+    <text x="30" y="280">###*#-=. .::..:-:           =*++=--:</text>
+    <text x="30" y="292">%##***=  ..:. :++..:        -#*####*</text>
+    <text x="30" y="304">##*=+*- ::.. .:-=. --:.     -*******</text>
+    <text x="30" y="316">**=:--..:=-  .:.....-++-:   =+++++++</text>
     </g>
     
-    <line x1="160" y1="100" x2="160" y2="310" stroke="#1f2430" stroke-width="1"/>
+    <line x1="250" y1="100" x2="250" y2="310" stroke="#1f2430" stroke-width="1"/>
     
-    <g transform="translate(180, 0)">
+    <g transform="translate(270, 0)" style="font-size: 13px;">
       <text x="0" y="115"><tspan class="accent">ecclesyia</tspan><tspan class="subtle">@</tspan><tspan class="prompt">binus-university</tspan></text>
       <text x="0" y="125" class="subtle">-----------------------------</text>
       
@@ -53,6 +68,6 @@
       <text x="0" y="290"><tspan class="label">Languages</tspan><tspan class="subtle">: </tspan><tspan class="value">Kotlin, Java, JavaScript, Python, SQL, GDScript</tspan></text>
     </g>
 
-    <text x="35" y="330"><tspan class="prompt">ecclesyia@binus:~$</tspan> <rect class="cursor" x="180" y="317" width="8" height="15" fill="#58a6ff"/></text>
+    <text x="30" y="330" style="font-size: 14px;"><tspan class="prompt">ecclesyia@binus:~$</tspan> <rect class="cursor" x="180" y="317" width="8" height="15" fill="#58a6ff"/></text>
   </g>
 </svg>

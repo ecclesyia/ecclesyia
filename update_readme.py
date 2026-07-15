@@ -2,7 +2,9 @@ import urllib.request
 import json
 import re
 import os
+import io
 from datetime import datetime
+from PIL import Image
 
 def fetch_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -50,13 +52,8 @@ def get_stats():
             year = dt.year
             by_year[year] = by_year.get(year, 0) + 1
 
-    # Generate Markdown content for dynamic stats
+    # Generate Markdown content for dynamic stats (only the year table)
     stats_md = []
-    stats_md.append(f"* **Coding Experience**: Since January 2023 ({duration_str})")
-    stats_md.append(f"* **Total Public Repositories**: {total_public_repos}")
-    stats_md.append("")
-    stats_md.append("### Repositories Created per Year")
-    stats_md.append("")
     stats_md.append("| Year | Repositories Created |")
     stats_md.append("| :--- | :--- |")
     for y in sorted(by_year.keys(), reverse=True):
@@ -66,20 +63,100 @@ def get_stats():
     
     return stats_content, duration_str, total_public_repos
 
+def get_ascii_portrait():
+    # Attempt to load local portrait, fallback to GitHub avatar
+    img = None
+    local_path = "portrait.png"
+    if os.path.exists(local_path):
+        try:
+            img = Image.open(local_path)
+            print("Loaded local portrait.png for ASCII conversion.")
+        except Exception as e:
+            print(f"Error loading local portrait.png: {e}")
+            
+    if img is None:
+        try:
+            avatar_url = "https://avatars.githubusercontent.com/u/120638975?v=4"
+            print("Fetching GitHub avatar for ASCII conversion...")
+            req = urllib.request.Request(avatar_url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req) as resp:
+                img_data = resp.read()
+            img = Image.open(io.BytesIO(img_data))
+        except Exception as e:
+            print(f"Error fetching GitHub avatar: {e}")
+            return None
+
+    # Calculate height based on monospace font aspect ratio (0.55 multiplier)
+    width = 36
+    height = int(width * (img.height / img.width) * 0.55)
+    
+    img = img.resize((width, height), Image.Resampling.LANCZOS)
+    img = img.convert("RGBA")
+    
+    chars = " .:-=+*#%@"
+    ascii_lines = []
+    for y in range(height):
+        line = ""
+        for x in range(width):
+            r, g, b, a = img.getpixel((x, y))
+            if a < 50:
+                line += " "
+            else:
+                gray = int(0.299 * r + 0.587 * g + 0.114 * b)
+                idx = int((gray / 255) * (len(chars) - 1))
+                line += chars[idx]
+        ascii_lines.append(line)
+        
+    return ascii_lines
+
 def generate_svg(duration_str, total_repos, output_dir):
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
     
+    # Get ASCII portrait
+    ascii_lines = get_ascii_portrait()
+    
+    # Fallback to stylized logo if ASCII generation failed
+    if not ascii_lines:
+        ascii_lines = [
+            "  ███████╗  ",
+            "  ██╔════╝  ",
+            "  ███████╗  ",
+            "  ██╔════╝  ",
+            "  ███████╗  ",
+            "  ╚══════╝  "
+        ]
+        ascii_y_start = 150
+        ascii_font_size = 14
+        ascii_line_height = 20
+        ascii_color_class = "accent"
+    else:
+        ascii_y_start = 100
+        ascii_font_size = 9
+        ascii_line_height = 12
+        ascii_color_class = "portrait-color"
+    
+    # Generate SVG XML for the ASCII lines
+    ascii_elements = []
+    for i, line in enumerate(ascii_lines):
+        y_pos = ascii_y_start + (i * ascii_line_height)
+        # Escape any potential XML issues (though our charset is safe)
+        escaped_line = line.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        ascii_elements.append(f'<text x="30" y="{y_pos}">{escaped_line}</text>')
+        
+    ascii_svg_text = "\n    ".join(ascii_elements)
+
     svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" width="800" height="360" viewBox="0 0 800 360">
   <style>
-    .terminal {{ font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace; font-size: 14px; fill: #abb2bf; }}
+    .terminal {{ font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace; font-weight: bold; fill: #abb2bf; }}
     .title-text {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: #8b949e; font-weight: 500; }}
     .prompt {{ fill: #98c379; }}
     .command {{ fill: #e5c07b; }}
-    .accent {{ fill: #61afef; font-weight: bold; }}
+    .accent {{ fill: #61afef; }}
     .label {{ fill: #56b6c2; }}
     .value {{ fill: #c9d1d9; }}
     .subtle {{ fill: #5c6370; }}
+    .portrait-color {{ fill: #56b6c2; font-size: {ascii_font_size}px; }}
     .cursor {{ animation: blink 1s step-end infinite; }}
     @keyframes blink {{ 50% {{ fill: transparent; }} }}
   </style>
@@ -98,20 +175,16 @@ def generate_svg(duration_str, total_repos, output_dir):
   <text x="400" y="34" text-anchor="middle" class="title-text">ecclesyia@binus: ~</text>
   
   <g class="terminal">
-    <text x="35" y="75"><tspan class="prompt">ecclesyia@binus:~$</tspan> <tspan class="command">neofetch</tspan></text>
+    <text x="30" y="75" style="font-size: 14px;"><tspan class="prompt">ecclesyia@binus:~$</tspan> <tspan class="command">neofetch</tspan></text>
     
-    <g class="accent">
-      <text x="35" y="115">███████╗</text>
-      <text x="35" y="135">██╔════╝</text>
-      <text x="35" y="155">█████╗  </text>
-      <text x="35" y="175">██╔═══╝  </text>
-      <text x="35" y="195">███████╗</text>
-      <text x="35" y="215">╚══════╝</text>
+    <!-- ASCII Art / Portrait Column -->
+    <g class="{ascii_color_class}" style="font-size: {ascii_font_size}px;">
+      {ascii_svg_text}
     </g>
     
-    <line x1="160" y1="100" x2="160" y2="310" stroke="#1f2430" stroke-width="1"/>
+    <line x1="250" y1="100" x2="250" y2="310" stroke="#1f2430" stroke-width="1"/>
     
-    <g transform="translate(180, 0)">
+    <g transform="translate(270, 0)" style="font-size: 13px;">
       <text x="0" y="115"><tspan class="accent">ecclesyia</tspan><tspan class="subtle">@</tspan><tspan class="prompt">binus-university</tspan></text>
       <text x="0" y="125" class="subtle">-----------------------------</text>
       
@@ -125,7 +198,7 @@ def generate_svg(duration_str, total_repos, output_dir):
       <text x="0" y="290"><tspan class="label">Languages</tspan><tspan class="subtle">: </tspan><tspan class="value">Kotlin, Java, JavaScript, Python, SQL, GDScript</tspan></text>
     </g>
 
-    <text x="35" y="330"><tspan class="prompt">ecclesyia@binus:~$</tspan> <rect class="cursor" x="180" y="317" width="8" height="15" fill="#58a6ff"/></text>
+    <text x="30" y="330" style="font-size: 14px;"><tspan class="prompt">ecclesyia@binus:~$</tspan> <rect class="cursor" x="180" y="317" width="8" height="15" fill="#58a6ff"/></text>
   </g>
 </svg>"""
 

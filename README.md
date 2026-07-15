@@ -6,28 +6,13 @@
   <img src="https://komarev.com/ghpvc/?username=ecclesyia&color=blueviolet&style=flat-square&label=Profile+Views" alt="Profile Views">
 </p>
 
-I am a Computer Science student specializing in Software Engineering at BINUS University. I also work as a HIMTI Responsi Activist, assisting fellow students with programming fundamentals, algorithms, and data structures.
-
 ---
 
-## About Me
+## Repository History
 
-* Pronouns: He / Him
-* Education: BINUS University (Computer Science - Software Engineering)
-* Location: Bekasi, Indonesia
-* Interests: Software development, web applications, and game industry collaborations
-* Current Projects: Working on the Uma Musume Discord Bot project and other passion projects
-
----
-
-## Developer Statistics
+The table below shows the distribution of public repositories created per year:
 
 <!-- START_SECTION:dynamic_stats -->
-* **Coding Experience**: Since January 2023 (3 Years, 6 Months)
-* **Total Public Repositories**: 31
-
-### Repositories Created per Year
-
 | Year | Repositories Created |
 | :--- | :--- |
 | 2026 | 19 |
