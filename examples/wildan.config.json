@@ -1,0 +1,82 @@
+{
+  "$schema": "../profile.schema.json",
+  "profile": {
+    "name": "Wildan Syukri Niam",
+    "username": "wildanniam",
+    "headline": "AI Researcher & Web3 Builder",
+    "affiliation": "Telkom University",
+    "location": "Bandung, Indonesia",
+    "status": "Researching / Building / Shipping",
+    "about": [
+      "I explore the intersection of AI agents, Web3 trust, and on-chain intelligence through research and real-world software systems.",
+      "My work focuses on how autonomous software can reason, transact, verify risk, and coordinate with clear evidence and human control."
+    ]
+  },
+  "research": {
+    "primary": "AI Agents",
+    "direction": "Trustworthy autonomous systems",
+    "themes": "Agentic RAG / evaluation / payments",
+    "narrative": "I am especially interested in systems where AI agents do more than generate text: they observe state, use tools, reason over risk, coordinate, and take bounded actions with transparent evidence."
+  },
+  "focus": [
+    {
+      "name": "AI Agents",
+      "description": "Autonomous workflows, tool use, agent reliability, and applied agent systems."
+    },
+    {
+      "name": "Web3 Trust",
+      "description": "Safer transaction layers, address intelligence, and user-facing risk signals."
+    },
+    {
+      "name": "Agentic Payments",
+      "description": "Payment infrastructure and wallet experiences designed for autonomous software."
+    }
+  ],
+  "projects": [
+    {
+      "name": "PayGate",
+      "url": "https://github.com/wildanniam/paygate-stellar",
+      "homepage": "",
+      "focus": "Agentic payment infrastructure",
+      "summary": "A payment layer for monetizing API access through blockchain-based settlement.",
+      "heroLabel": "Agentic payments"
+    },
+    {
+      "name": "Fradium",
+      "url": "https://github.com/fradiumofficial/fradium",
+      "homepage": "https://fradium.io",
+      "focus": "AI-powered Web3 trust layer",
+      "summary": "Multi-chain address analysis and AI threat detection for safer Web3 activity.",
+      "heroLabel": "Web3 trust layer"
+    },
+    {
+      "name": "NovaAI",
+      "url": "https://github.com/OfficialNovaAI/nova-wallet",
+      "homepage": "",
+      "focus": "AI wallet orchestration",
+      "summary": "A chat-first wallet layer for analysis, transaction preparation, and payment workflows.",
+      "heroLabel": "Intelligent wallet"
+    },
+    {
+      "name": "Quorum",
+      "url": "https://github.com/wildanniam",
+      "homepage": "",
+      "focus": "Autonomous agent coordination",
+      "summary": "An exploration of coordination and accountability across autonomous agent systems.",
+      "heroLabel": "Agent coordination"
+    }
+  ],
+  "techStack": ["TypeScript", "Next.js", "Python", "Solidity", "Stellar", "PostgreSQL", "Playwright"],
+  "links": [
+    {
+      "label": "GitHub",
+      "value": "wildanniam",
+      "url": "https://github.com/wildanniam",
+      "logo": "github",
+      "color": "0B1220"
+    }
+  ],
+  "activity": { "enabled": true, "limit": 6 },
+  "appearance": { "palette": "signal" },
+  "footer": "Building at the edge of AI agents, Web3 trust, and autonomous software."
+}

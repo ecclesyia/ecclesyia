@@ -1,0 +1,86 @@
+{
+  "$schema": "./profile.schema.json",
+  "profile": {
+    "name": "Ecclesiates Natarios Sihombing",
+    "username": "ecclesyia",
+    "headline": "CS Student & HIMTI Activist",
+    "affiliation": "BINUS University",
+    "location": "Bekasi, Indonesia",
+    "status": "Learning / Building / Responsi",
+    "about": [
+      "I am a Computer Science student at BINUS University specializing in Software Engineering.",
+      "I work as a HIMTI Responsi Activist, helping fellow students learn programming, data structures, and algorithms."
+    ],
+    "totalRepos": 31
+  },
+  "research": {
+    "primary": "Software Architecture",
+    "direction": "Clean, robust system design",
+    "themes": "Algorithms / Data Structures / Bot Workflows",
+    "narrative": "I am interested in clean code design, efficient data structures, and building robust backend services like Discord bots."
+  },
+  "focus": [
+    {
+      "name": "Game Development",
+      "description": "Exploring GDScript, game mechanics, and interactive workflows."
+    },
+    {
+      "name": "Web & Bot Apps",
+      "description": "Building JavaScript/Python tools, including the Uma Musume Discord Bot."
+    },
+    {
+      "name": "Software Design",
+      "description": "Teaching and applying fundamental data structures and algorithms."
+    }
+  ],
+  "projects": [
+    {
+      "name": "portofolio",
+      "url": "https://github.com/ecclesyia/portofolio",
+      "homepage": "https://ecclesyia.netlify.app",
+      "focus": "Portfolio Site",
+      "summary": "A website of tracking and as a portfolio for me and sharing the thing that I had made in the past.",
+      "heroLabel": "CSS / HTML build"
+    },
+    {
+      "name": "ecclesyia",
+      "url": "https://github.com/ecclesyia/ecclesyia",
+      "homepage": "",
+      "focus": "Profile Config",
+      "summary": "Dynamic, terminal-style profile README configurations.",
+      "heroLabel": "Profile build"
+    }
+  ],
+  "techStack": [
+    "Kotlin",
+    "Java",
+    "JavaScript",
+    "Python",
+    "SQL",
+    "GDScript"
+  ],
+  "links": [
+    {
+      "label": "GitHub",
+      "value": "ecclesyia",
+      "url": "https://github.com/ecclesyia",
+      "logo": "github",
+      "color": "0B1220"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "ecclesiates-sihombing",
+      "url": "https://www.linkedin.com/in/ecclesiates-sihombing",
+      "logo": "linkedin",
+      "color": "0077B5"
+    }
+  ],
+  "activity": {
+    "enabled": true,
+    "limit": 6
+  },
+  "appearance": {
+    "palette": "signal"
+  },
+  "footer": "Building thoughtful systems and sharing what works."
+}
