@@ -86,12 +86,23 @@ def get_ascii_portrait():
             print(f"Error fetching GitHub avatar: {e}")
             return None
 
+    # Convert to RGBA and filter out the orange background
+    img = img.convert("RGBA")
+    new_data = []
+    for item in img.getdata():
+        r, g, b, a = item
+        # Detect orange background
+        if r > 200 and g > 120 and b < 120 and (r - g) > 40 and (g - b) > 40:
+            new_data.append((0, 0, 0, 0))
+        else:
+            new_data.append(item)
+    img.putdata(new_data)
+
     # Calculate height based on monospace font aspect ratio (0.55 multiplier)
     width = 36
     height = int(width * (img.height / img.width) * 0.55)
     
     img = img.resize((width, height), Image.Resampling.LANCZOS)
-    img = img.convert("RGBA")
     
     chars = " .:-=+*#%@"
     ascii_lines = []
