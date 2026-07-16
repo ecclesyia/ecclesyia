@@ -45,7 +45,7 @@ The table below shows the distribution of public repositories created per year:
 
 | Year | Repositories Created |
 | :--- | :--- |
-| 2026 | 19 |
+| 2026 | 20 |
 | 2025 | 3 |
 | 2024 | 3 |
 | 2023 | 6 |
