@@ -78,24 +78,8 @@ def update_readme():
             pattern_views = r"(</picture>\s*</p>)"
             readme_content = re.sub(pattern_views, r"\1\n" + views_badge, readme_content)
             
-        # B. Generate the dynamic monochrome extra sections (History, Stats, Tech Grid, Connect)
-        extra_sections = "\n## Repository History\n\nThe table below shows the distribution of public repositories created per year:\n\n"
-        extra_sections += "| Year | Repositories Created |\n"
-        extra_sections += "| :--- | :--- |\n"
-        for y in sorted(by_year.keys(), reverse=True):
-            extra_sections += f"| {y} | {by_year[y]} |\n"
-            
-        extra_sections += """
-## GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ecclesyia&theme=dark&hide_border=true&background=000000&fire=ffffff&ring=ffffff&currStreakNum=ffffff&sideNums=ffffff&sideLabels=6e6e6e&currStreakLabel=ffffff" alt="GitHub Streak Stats" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ecclesyia&show_icons=true&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&count_private=true" alt="GitHub Stats" />
-</p>
-
+        # B. Generate the dynamic monochrome extra sections (Tech Grid, Connect, and Stats Cards)
+        extra_sections = """
 ## Tools and Technologies
 
 <p align="center">
@@ -121,21 +105,19 @@ def update_readme():
     <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" />
   </a>
 </p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ecclesyia&theme=dark&hide_border=true&background=000000&fire=ffffff&ring=ffffff&currStreakNum=ffffff&sideNums=ffffff&sideLabels=6e6e6e&currStreakLabel=ffffff" alt="GitHub Streak Stats" height="160" />
+  <img src="https://github-readme-stats.vercel.app/api?username=ecclesyia&show_icons=true&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&count_private=true" alt="GitHub Stats" height="160" />
+</p>
 """
 
-        # Replace or append the dynamic extra sections
-        if "## Repository History" in readme_content:
-            pattern_history = r"## Repository History.*"
-            updated_content = re.sub(pattern_history, extra_sections.strip(), readme_content, flags=re.DOTALL)
-        else:
-            parts = readme_content.rsplit("---", 1)
-            if len(parts) == 2:
-                updated_content = parts[0] + "---\n" + extra_sections + "\n---\n" + parts[1]
-            else:
-                updated_content = readme_content.strip() + "\n" + extra_sections
+        # Inject the entire block right above "## About Me"
+        if "## Tools and Technologies" not in readme_content:
+            readme_content = readme_content.replace("## About Me", extra_sections.strip() + "\n\n## About Me")
                 
         with open(readme_path, "w", encoding="utf-8") as f:
-            f.write(updated_content)
+            f.write(readme_content)
         print("Dynamic monochrome sections successfully injected into README.md.")
         
     except Exception as e:
@@ -143,3 +125,4 @@ def update_readme():
 
 if __name__ == "__main__":
     update_readme()
+

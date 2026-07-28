@@ -6,6 +6,14 @@ import { clamp, escapeXml } from "./xml.mjs";
 
 const GENERATOR_VERSION = "agent-console-v1";
 
+const SVG_CODE = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><path d="M160 128L32 256l128 128M352 128l128 128-128 128M288 64L224 448" fill="none" stroke="black" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+const SVG_WINDOWS = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><rect x="64" y="64" width="180" height="180" fill="black"/><rect x="268" y="64" width="180" height="180" fill="black"/><rect x="64" y="268" width="180" height="180" fill="black"/><rect x="268" y="268" width="180" height="180" fill="black"/></svg>`;
+
+const SVG_ANDROID = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><rect x="180" y="50" width="24" height="70" rx="12" transform="rotate(-30 180 70)" fill="black"/><rect x="308" y="50" width="24" height="70" rx="12" transform="rotate(30 308 70)" fill="black"/><path d="M140 230 C140 140, 372 140, 372 230 Z" fill="black"/><circle cx="210" cy="180" r="14" fill="white"/><circle cx="302" cy="180" r="14" fill="white"/><rect x="140" y="250" width="232" height="180" rx="20" fill="black"/><rect x="92" y="250" width="36" height="140" rx="18" fill="black"/><rect x="384" y="250" width="36" height="140" rx="18" fill="black"/><rect x="190" y="440" width="36" height="60" rx="18" fill="black"/><rect x="286" y="440" width="36" height="60" rx="18" fill="black"/></svg>`;
+
+
+
 const paletteDefinitions = {
   signal: {
     dark: { backgroundStart: "#020617", backgroundEnd: "#11152F", panel: "#07111F", primary: "#E5E7EB", muted: "#64748B", cyan: "#22D3EE", blue: "#38BDF8", violet: "#7C3AED", green: "#10B981", red: "#F87171", scanBlend: "screen" },
@@ -220,14 +228,17 @@ function buildAmbientPortraitLayer(layout, colors, size) {
 </g>`;
 }
 
-function createHeroSvg(config, colors, size, portrait) {
+function createHeroSvg(config, colors, size, portraits) {
   const layout = layouts[size];
   const titlebar = layout.titlebar;
   const visual = layout.visualPanel;
   const info = layout.infoPanel;
   const clip = layout.portraitClip;
   const profileLines = buildProfileLines(config);
-  const ascii = createAsciiTspans(portrait, layout.portrait);
+  const asciiPlushie = createAsciiTspans(portraits.plushie, layout.portrait);
+  const asciiCode = createAsciiTspans(portraits.code, layout.portrait);
+  const asciiWindows = createAsciiTspans(portraits.windows, layout.portrait);
+  const asciiAndroid = createAsciiTspans(portraits.android, layout.portrait);
   const system = buildSystemLayer(profileLines, layout.system, colors);
   const ambientPortrait = buildAmbientPortraitLayer(layout, colors, size);
   const isDesktop = size === "desktop";
@@ -274,11 +285,28 @@ ${isDesktop ? `<circle cx="${liveX}" cy="${titlebar.y + titlebar.height / 2}" r=
 <text x="${layout.visualTitle.x}" y="${layout.visualTitle.y}" class="panel-title">VISUAL.MAP / PORTRAIT.SIGNAL</text>
 <text x="${layout.infoTitle.x}" y="${layout.infoTitle.y}" class="panel-title">SYSTEM.INFO / RESEARCH.BUILDER</text>
 ${ambientPortrait}
-<g clip-path="url(#portrait-clip)" mask="url(#portrait-reveal)"><text class="ascii">${ascii}</text></g>
+<g clip-path="url(#portrait-clip)" mask="url(#portrait-reveal)">
+  <g>
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.21875;0.25;0.96875;1" dur="16s" repeatCount="indefinite"/>
+    <text class="ascii">${asciiPlushie}</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.21875;0.25;0.46875;0.5;1" dur="16s" repeatCount="indefinite"/>
+    <text class="ascii">${asciiCode}</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.46875;0.5;0.71875;0.75;1" dur="16s" repeatCount="indefinite"/>
+    <text class="ascii">${asciiWindows}</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.71875;0.75;0.96875;1" dur="16s" repeatCount="indefinite"/>
+    <text class="ascii">${asciiAndroid}</text>
+  </g>
+</g>
 ${system.rows}
 <rect x="${layout.system.x + 2}" y="${cursorY}" width="9" height="${layout.system.fontSize + 2}" fill="${colors.cyan}" opacity="0"><animate attributeName="opacity" values="0;0;1;0;1;0;1;0" keyTimes="0;0.03;0.06;0.32;0.5;0.68;0.84;1" dur="1.4s" begin="3.3s" repeatCount="indefinite"/></rect>
 <text x="${layout.width / 2}" y="${layout.footerY}" text-anchor="middle" class="mono" font-size="10" letter-spacing="1.5" fill="${colors.muted}">${escapeXml(footerLabel)}</text>
-<rect x="0" y="-70" width="${layout.width}" height="70" fill="url(#scan)" opacity="0.72" style="mix-blend-mode:${colors.scanBlend}"><animateTransform attributeName="transform" type="translate" from="0 -70" to="0 ${layout.height + 70}" dur="4.5s" repeatCount="indefinite"/></rect>
+<rect x="0" y="-70" width="${layout.width}" height="70" fill="url(#scan)" opacity="0.32"><animateTransform attributeName="transform" type="translate" from="0 -70" to="0 ${layout.height + 70}" dur="4.5s" repeatCount="indefinite"/></rect>
 <rect x="3" y="3" width="${layout.width - 6}" height="${layout.height - 6}" rx="${layout.outerRadius - 2}" fill="none" stroke="url(#border)" stroke-width="2" opacity="0.76"><animate attributeName="opacity" values="0.5;0.94;0.5" dur="3.4s" repeatCount="indefinite"/></rect>
 </svg>`;
 }
@@ -302,8 +330,24 @@ export async function generateHeroAssets({ config, sourcePath, outputDirectory }
     .digest("hex")
     .slice(0, 8);
   const palette = paletteDefinitions[config.appearance.palette];
+  
+  // Sample plushie portrait
   const desktopPortrait = await samplePortrait(sourceBuffer, layouts.desktop.portrait.columns, layouts.desktop.portrait.rows);
   const mobilePortrait = await samplePortrait(sourceBuffer, layouts.mobile.portrait.columns, layouts.mobile.portrait.rows);
+  
+  // Sample custom vector icons
+  const desktopCode = await samplePortrait(Buffer.from(SVG_CODE), layouts.desktop.portrait.columns, layouts.desktop.portrait.rows);
+  const mobileCode = await samplePortrait(Buffer.from(SVG_CODE), layouts.mobile.portrait.columns, layouts.mobile.portrait.rows);
+  
+  const desktopWindows = await samplePortrait(Buffer.from(SVG_WINDOWS), layouts.desktop.portrait.columns, layouts.desktop.portrait.rows);
+  const mobileWindows = await samplePortrait(Buffer.from(SVG_WINDOWS), layouts.mobile.portrait.columns, layouts.mobile.portrait.rows);
+  
+  const desktopAndroid = await samplePortrait(Buffer.from(SVG_ANDROID), layouts.desktop.portrait.columns, layouts.desktop.portrait.rows);
+  const mobileAndroid = await samplePortrait(Buffer.from(SVG_ANDROID), layouts.mobile.portrait.columns, layouts.mobile.portrait.rows);
+  
+  const desktopPortraits = { plushie: desktopPortrait, code: desktopCode, windows: desktopWindows, android: desktopAndroid };
+  const mobilePortraits = { plushie: mobilePortrait, code: mobileCode, windows: mobileWindows, android: mobileAndroid };
+
   const assets = {
     desktopDark: `agent-console-${version}-dark.svg`,
     desktopLight: `agent-console-${version}-light.svg`,
@@ -313,10 +357,10 @@ export async function generateHeroAssets({ config, sourcePath, outputDirectory }
 
   await mkdir(outputDirectory, { recursive: true });
   await Promise.all([
-    writeFile(resolve(outputDirectory, assets.desktopDark), createHeroSvg(config, palette.dark, "desktop", desktopPortrait)),
-    writeFile(resolve(outputDirectory, assets.desktopLight), createHeroSvg(config, palette.light, "desktop", desktopPortrait)),
-    writeFile(resolve(outputDirectory, assets.mobileDark), createHeroSvg(config, palette.dark, "mobile", mobilePortrait)),
-    writeFile(resolve(outputDirectory, assets.mobileLight), createHeroSvg(config, palette.light, "mobile", mobilePortrait))
+    writeFile(resolve(outputDirectory, assets.desktopDark), createHeroSvg(config, palette.dark, "desktop", desktopPortraits)),
+    writeFile(resolve(outputDirectory, assets.desktopLight), createHeroSvg(config, palette.light, "desktop", desktopPortraits)),
+    writeFile(resolve(outputDirectory, assets.mobileDark), createHeroSvg(config, palette.dark, "mobile", mobilePortraits)),
+    writeFile(resolve(outputDirectory, assets.mobileLight), createHeroSvg(config, palette.light, "mobile", mobilePortraits))
   ]);
   await cleanOldAssets(outputDirectory, Object.values(assets));
 
