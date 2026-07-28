@@ -28,13 +28,21 @@ jobs:
       - name: Run update script
         run: python update_readme.py
 
+      - name: Generate github-contribution-grid-snake.svg
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/snake/github-contribution-grid-snake.svg
+            assets/snake/github-contribution-grid-snake-dark.svg?palette=github-dark
+
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md profile.config.json assets/
           if ! git diff-index --quiet HEAD; then
-            git commit -m "chore: update dynamic profile statistics"
+            git commit -m "chore: update dynamic profile statistics and contribution snake"
             git push
           else
             echo "No changes to commit"
