@@ -177,27 +177,133 @@ function createAsciiTspans({ pixels, width, height }, placement) {
   return rows.join("\n");
 }
 
-function buildSystemLayer(profileLines, { x, y, width, lineHeight, fontSize }, colors) {
+function wrapText(text, maxLen) {
+  const words = text.split(" ");
+  const lines = [];
+  let currentLine = "";
+  for (const word of words) {
+    if ((currentLine + word).length > maxLen) {
+      lines.push(currentLine.trim());
+      currentLine = word + " ";
+    } else {
+      currentLine += word + " ";
+    }
+  }
+  if (currentLine.trim()) {
+    lines.push(currentLine.trim());
+  }
+  return lines;
+}
+
+function buildPage2Lines(config) {
+  const lines = [
+    { type: "header", value: `@${config.profile.username}` },
+    { type: "section", value: "SYSTEM.ABOUT / OVERVIEW" }
+  ];
+  
+  const rawAbout = config.profile.about || [];
+  rawAbout.forEach((para) => {
+    const wrapped = wrapText(para, 48);
+    wrapped.forEach((wLine, idx) => {
+      if (idx === 0) {
+        lines.push({ type: "row", key: "summary", value: wLine });
+      } else {
+        lines.push({ type: "row", key: "       ", value: wLine });
+      }
+    });
+    lines.push({ type: "blank" });
+  });
+  
+  if (lines[lines.length - 1].type === "blank") {
+    lines.pop();
+  }
+  
+  lines.push({ type: "blank" });
+  lines.push({ type: "footer", value: "status: active_learner / peer_instructor" });
+  return lines;
+}
+
+function buildPage3Lines(config) {
+  const lines = [
+    { type: "header", value: `@${config.profile.username}` },
+    { type: "section", value: "SYSTEM.FOCUS / EXPLORATIONS" }
+  ];
+  
+  config.focus.slice(0, 4).forEach((item) => {
+    let key = item.name.toLowerCase().replace(/ /g, "_");
+    if (key === "software_engineering") key = "software_eng";
+    if (key === "full_stack_developer") key = "full_stack";
+    if (key === "game_development") key = "game_dev";
+    if (key === "passionate_projects") key = "passion_proj";
+    
+    const wrapped = wrapText(item.description, 36);
+    wrapped.forEach((wLine, idx) => {
+      if (idx === 0) {
+        lines.push({ type: "row", key: `[x] ${key}`, value: wLine });
+      } else {
+        lines.push({ type: "row", key: "    " + " ".repeat(key.length), value: wLine });
+      }
+    });
+    lines.push({ type: "blank" });
+  });
+
+  if (lines[lines.length - 1].type === "blank") {
+    lines.pop();
+  }
+  
+  lines.push({ type: "blank" });
+  lines.push({ type: "footer", value: "active_focus_areas: 4 / 4" });
+  return lines;
+}
+
+function buildPage4Lines(config) {
+  const lines = [
+    { type: "header", value: `@${config.profile.username}` },
+    { type: "section", value: "RESEARCH.NODE / INVESTIGATIONS" },
+    { type: "row", key: "research.primary", value: config.research.primary },
+    { type: "row", key: "research.themes", value: config.research.themes }
+  ];
+  
+  const narrative = config.research.narrative || "";
+  const wrapped = wrapText(narrative, 36);
+  wrapped.forEach((wLine, idx) => {
+    if (idx === 0) {
+      lines.push({ type: "row", key: "research.direction", value: wLine });
+    } else {
+      lines.push({ type: "row", key: "                   ", value: wLine });
+    }
+  });
+  
+  lines.push({ type: "blank" });
+  lines.push({ type: "footer", value: "signal.locked > PROFILE / BUILD / SHARE" });
+  return lines;
+}
+
+function buildSystemLayer(profileLines, { x, y, width, lineHeight, fontSize }, colors, prefix = "system", useAnimation = true) {
   const clips = [];
   const rows = [];
 
   profileLines.forEach((line, index) => {
     if (line.type === "blank") return;
-    const id = `system-line-${index}`;
+    const id = `${prefix}-line-${index}`;
     const lineY = y + index * lineHeight;
     const begin = (0.68 + index * 0.105).toFixed(2);
 
-    clips.push(`<clipPath id="${id}"><rect x="${x - 3}" y="${(lineY - fontSize - 2).toFixed(2)}" width="0" height="${fontSize + 8}"><animate attributeName="width" from="0" to="${width}" dur="0.36s" begin="${begin}s" fill="freeze"/></rect></clipPath>`);
+    if (useAnimation) {
+      clips.push(`<clipPath id="${id}"><rect x="${x - 3}" y="${(lineY - fontSize - 2).toFixed(2)}" width="0" height="${fontSize + 8}"><animate attributeName="width" from="0" to="${width}" dur="0.36s" begin="${begin}s" fill="freeze"/></rect></clipPath>`);
+    }
+
+    const clipAttr = useAnimation ? ` clip-path="url(#${id})"` : "";
 
     if (line.type === "header") {
-      rows.push(`<g clip-path="url(#${id})"><text x="${x}" y="${lineY}" class="system-head"><tspan fill="${colors.violet}">${escapeXml(line.value)}</tspan><tspan fill="${colors.muted}"> ------------------------------------------</tspan></text></g>`);
+      rows.push(`<g${clipAttr}><text x="${x}" y="${lineY}" class="system-head"><tspan fill="${colors.violet}">${escapeXml(line.value)}</tspan><tspan fill="${colors.muted}"> ------------------------------------------</tspan></text></g>`);
     } else if (line.type === "section") {
-      rows.push(`<g clip-path="url(#${id})"><text x="${x}" y="${lineY}" class="system-section" fill="${colors.green}">- ${escapeXml(line.value)} -----------------------------------</text></g>`);
+      rows.push(`<g${clipAttr}><text x="${x}" y="${lineY}" class="system-section" fill="${colors.green}">- ${escapeXml(line.value)} -----------------------------------</text></g>`);
     } else if (line.type === "footer") {
-      rows.push(`<g clip-path="url(#${id})"><text x="${x}" y="${lineY}" class="system-footer" fill="${colors.blue}">${escapeXml(line.value)}</text></g>`);
+      rows.push(`<g${clipAttr}><text x="${x}" y="${lineY}" class="system-footer" fill="${colors.blue}">${escapeXml(line.value)}</text></g>`);
     } else {
       const dots = ".".repeat(Math.max(3, 14 - line.key.length));
-      rows.push(`<g clip-path="url(#${id})"><text x="${x}" y="${lineY}" class="system-row"><tspan fill="${colors.muted}">. </tspan><tspan class="system-key" fill="${colors.cyan}">${escapeXml(line.key)}</tspan><tspan fill="${colors.muted}">: ${dots} </tspan><tspan fill="${colors.primary}">${escapeXml(line.value)}</tspan></text></g>`);
+      rows.push(`<g${clipAttr}><text x="${x}" y="${lineY}" class="system-row"><tspan fill="${colors.muted}">. </tspan><tspan class="system-key" fill="${colors.cyan}">${escapeXml(line.key)}</tspan><tspan fill="${colors.muted}">: ${dots} </tspan><tspan fill="${colors.primary}">${escapeXml(line.value)}</tspan></text></g>`);
     }
   });
 
@@ -235,11 +341,20 @@ function createHeroSvg(config, colors, size, portraits) {
   const info = layout.infoPanel;
   const clip = layout.portraitClip;
   const profileLines = buildProfileLines(config);
+  const page2Lines = buildPage2Lines(config);
+  const page3Lines = buildPage3Lines(config);
+  const page4Lines = buildPage4Lines(config);
+
   const asciiPlushie = createAsciiTspans(portraits.plushie, layout.portrait);
   const asciiCode = createAsciiTspans(portraits.code, layout.portrait);
   const asciiWindows = createAsciiTspans(portraits.windows, layout.portrait);
   const asciiAndroid = createAsciiTspans(portraits.android, layout.portrait);
-  const system = buildSystemLayer(profileLines, layout.system, colors);
+
+  const system = buildSystemLayer(profileLines, layout.system, colors, "system", true);
+  const system2 = buildSystemLayer(page2Lines, layout.system, colors, "system2", false);
+  const system3 = buildSystemLayer(page3Lines, layout.system, colors, "system3", false);
+  const system4 = buildSystemLayer(page4Lines, layout.system, colors, "system4", false);
+
   const ambientPortrait = buildAmbientPortraitLayer(layout, colors, size);
   const isDesktop = size === "desktop";
   const titleCenter = titlebar.x + titlebar.width / 2;
@@ -283,7 +398,6 @@ ${isDesktop ? `<circle cx="${liveX}" cy="${titlebar.y + titlebar.height / 2}" r=
 <rect x="${visual.x}" y="${visual.y}" width="${visual.width}" height="${visual.height}" rx="${visual.radius}" fill="${colors.panel}" fill-opacity="0.38" stroke="url(#border)" stroke-opacity="0.42"/>
 <rect x="${info.x}" y="${info.y}" width="${info.width}" height="${info.height}" rx="${info.radius}" fill="${colors.panel}" fill-opacity="0.42" stroke="url(#border)" stroke-opacity="0.42"/>
 <text x="${layout.visualTitle.x}" y="${layout.visualTitle.y}" class="panel-title">VISUAL.MAP / PORTRAIT.SIGNAL</text>
-<text x="${layout.infoTitle.x}" y="${layout.infoTitle.y}" class="panel-title">SYSTEM.INFO / RESEARCH.BUILDER</text>
 ${ambientPortrait}
 <g clip-path="url(#portrait-clip)" mask="url(#portrait-reveal)">
   <g>
@@ -303,8 +417,27 @@ ${ambientPortrait}
     <text class="ascii">${asciiAndroid}</text>
   </g>
 </g>
-${system.rows}
-<rect x="${layout.system.x + 2}" y="${cursorY}" width="9" height="${layout.system.fontSize + 2}" fill="${colors.cyan}" opacity="0"><animate attributeName="opacity" values="0;0;1;0;1;0;1;0" keyTimes="0;0.03;0.06;0.32;0.5;0.68;0.84;1" dur="1.4s" begin="3.3s" repeatCount="indefinite"/></rect>
+<g opacity="1">
+  <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.21875;0.25;0.96875;1" dur="16s" repeatCount="indefinite"/>
+  <text class="panel-title" x="${layout.infoTitle.x}" y="${layout.infoTitle.y}">SYSTEM.INFO / RESEARCH.BUILDER</text>
+  ${system.rows}
+  <rect x="${layout.system.x + 2}" y="${cursorY}" width="9" height="${layout.system.fontSize + 2}" fill="${colors.cyan}" opacity="0"><animate attributeName="opacity" values="0;0;1;0;1;0;1;0" keyTimes="0;0.03;0.06;0.32;0.5;0.68;0.84;1" dur="1.4s" begin="3.3s" repeatCount="indefinite"/></rect>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.21875;0.25;0.46875;0.5;1" dur="16s" repeatCount="indefinite"/>
+  <text class="panel-title" x="${layout.infoTitle.x}" y="${layout.infoTitle.y}">SYSTEM.ABOUT / OVERVIEW</text>
+  ${system2.rows}
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.46875;0.5;0.71875;0.75;1" dur="16s" repeatCount="indefinite"/>
+  <text class="panel-title" x="${layout.infoTitle.x}" y="${layout.infoTitle.y}">SYSTEM.FOCUS / EXPLORATIONS</text>
+  ${system3.rows}
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.71875;0.75;0.96875;1" dur="16s" repeatCount="indefinite"/>
+  <text class="panel-title" x="${layout.infoTitle.x}" y="${layout.infoTitle.y}">RESEARCH.NODE / INVESTIGATIONS</text>
+  ${system4.rows}
+</g>
 <text x="${layout.width / 2}" y="${layout.footerY}" text-anchor="middle" class="mono" font-size="10" letter-spacing="1.5" fill="${colors.muted}">${escapeXml(footerLabel)}</text>
 <rect x="0" y="-70" width="${layout.width}" height="70" fill="url(#scan)" opacity="0.32"><animateTransform attributeName="transform" type="translate" from="0 -70" to="0 ${layout.height + 70}" dur="4.5s" repeatCount="indefinite"/></rect>
 <rect x="3" y="3" width="${layout.width - 6}" height="${layout.height - 6}" rx="${layout.outerRadius - 2}" fill="none" stroke="url(#border)" stroke-width="2" opacity="0.76"><animate attributeName="opacity" values="0.5;0.94;0.5" dur="3.4s" repeatCount="indefinite"/></rect>

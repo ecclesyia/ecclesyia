@@ -84,18 +84,6 @@ export async function generateProfileReadme({ config, manifest, readmePath }) {
 ${renderLinks(config.links)}
 </p>
 
-## About Me
-
-${about}
-
-## Current Focus
-
-${renderFocus(config.focus)}
-
-## Research Direction
-
-${config.research.narrative}
-${activitySection}
 ---
 
 <p align="center">

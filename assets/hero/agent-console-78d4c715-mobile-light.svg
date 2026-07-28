@@ -47,7 +47,6 @@
 <rect x="48" y="94" width="624" height="350" rx="14" fill="#FFFFFF" fill-opacity="0.38" stroke="url(#border)" stroke-opacity="0.42"/>
 <rect x="48" y="470" width="624" height="526" rx="14" fill="#FFFFFF" fill-opacity="0.42" stroke="url(#border)" stroke-opacity="0.42"/>
 <text x="66" y="116" class="panel-title">VISUAL.MAP / PORTRAIT.SIGNAL</text>
-<text x="66" y="492" class="panel-title">SYSTEM.INFO / RESEARCH.BUILDER</text>
 <g clip-path="url(#portrait-clip)" aria-hidden="true">
   <rect x="58" y="122" width="604" height="312" fill="url(#portrait-grid)"/>
   <ellipse cx="360.0" cy="256.2" rx="267.5" ry="104.5" fill="url(#portrait-halo)"/>
@@ -288,7 +287,10 @@
 <tspan x="180" y="434.10" xml:space="preserve">                         .=#@@@%*-                -*%@@@#=.                         </tspan></text>
   </g>
 </g>
-<g clip-path="url(#system-line-0)"><text x="72" y="520" class="system-head"><tspan fill="#000000">@ecclesyia</tspan><tspan fill="#666666"> ------------------------------------------</tspan></text></g>
+<g opacity="1">
+  <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.21875;0.25;0.96875;1" dur="16s" repeatCount="indefinite"/>
+  <text class="panel-title" x="66" y="492">SYSTEM.INFO / RESEARCH.BUILDER</text>
+  <g clip-path="url(#system-line-0)"><text x="72" y="520" class="system-head"><tspan fill="#000000">@ecclesyia</tspan><tspan fill="#666666"> ------------------------------------------</tspan></text></g>
 <g clip-path="url(#system-line-1)"><text x="72" y="541" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">Subject</tspan><tspan fill="#666666">: ....... </tspan><tspan fill="#000000">Ecclesiates Natarios Sihombing</tspan></text></g>
 <g clip-path="url(#system-line-2)"><text x="72" y="562" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">Role</tspan><tspan fill="#666666">: .......... </tspan><tspan fill="#000000">CS - SE Student &amp; HIMTI Activist</tspan></text></g>
 <g clip-path="url(#system-line-3)"><text x="72" y="583" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">Affiliation</tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">BINUS University</tspan></text></g>
@@ -303,7 +305,56 @@
 <g clip-path="url(#system-line-14)"><text x="72" y="814" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">portofolio</tspan><tspan fill="#666666">: .... </tspan><tspan fill="#000000">JS / CSS / HTML build</tspan></text></g>
 <g clip-path="url(#system-line-15)"><text x="72" y="835" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">ecclesyia</tspan><tspan fill="#666666">: ..... </tspan><tspan fill="#000000">Profile build</tspan></text></g>
 <g clip-path="url(#system-line-17)"><text x="72" y="877" class="system-footer" fill="#242424">signal.locked &gt; PROFILE / BUILD / SHARE</text></g>
-<rect x="74" y="862" width="9" height="15" fill="#000000" opacity="0"><animate attributeName="opacity" values="0;0;1;0;1;0;1;0" keyTimes="0;0.03;0.06;0.32;0.5;0.68;0.84;1" dur="1.4s" begin="3.3s" repeatCount="indefinite"/></rect>
+  <rect x="74" y="862" width="9" height="15" fill="#000000" opacity="0"><animate attributeName="opacity" values="0;0;1;0;1;0;1;0" keyTimes="0;0.03;0.06;0.32;0.5;0.68;0.84;1" dur="1.4s" begin="3.3s" repeatCount="indefinite"/></rect>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.21875;0.25;0.46875;0.5;1" dur="16s" repeatCount="indefinite"/>
+  <text class="panel-title" x="66" y="492">SYSTEM.ABOUT / OVERVIEW</text>
+  <g><text x="72" y="520" class="system-head"><tspan fill="#000000">@ecclesyia</tspan><tspan fill="#666666"> ------------------------------------------</tspan></text></g>
+<g><text x="72" y="541" class="system-section" fill="#000000">- SYSTEM.ABOUT / OVERVIEW -----------------------------------</text></g>
+<g><text x="72" y="562" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">summary</tspan><tspan fill="#666666">: ....... </tspan><tspan fill="#000000">I am a Computer Science student at BINUS</tspan></text></g>
+<g><text x="72" y="583" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">       </tspan><tspan fill="#666666">: ....... </tspan><tspan fill="#000000">University specializing in Software Engineering.</tspan></text></g>
+<g><text x="72" y="625" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">summary</tspan><tspan fill="#666666">: ....... </tspan><tspan fill="#000000">I work as a HIMTI Responsi Activist, helping</tspan></text></g>
+<g><text x="72" y="646" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">       </tspan><tspan fill="#666666">: ....... </tspan><tspan fill="#000000">fellow students learn the fundamental in</tspan></text></g>
+<g><text x="72" y="667" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">       </tspan><tspan fill="#666666">: ....... </tspan><tspan fill="#000000">college.</tspan></text></g>
+<g><text x="72" y="709" class="system-footer" fill="#242424">status: active_learner / peer_instructor</text></g>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.46875;0.5;0.71875;0.75;1" dur="16s" repeatCount="indefinite"/>
+  <text class="panel-title" x="66" y="492">SYSTEM.FOCUS / EXPLORATIONS</text>
+  <g><text x="72" y="520" class="system-head"><tspan fill="#000000">@ecclesyia</tspan><tspan fill="#666666"> ------------------------------------------</tspan></text></g>
+<g><text x="72" y="541" class="system-section" fill="#000000">- SYSTEM.FOCUS / EXPLORATIONS -----------------------------------</text></g>
+<g><text x="72" y="562" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">[x] software_eng</tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">Designing, developing, testing, and</tspan></text></g>
+<g><text x="72" y="583" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">maintaining clean and robust</tspan></text></g>
+<g><text x="72" y="604" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">software systems.</tspan></text></g>
+<g><text x="72" y="646" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">[x] full_stack</tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">Building responsive web</tspan></text></g>
+<g><text x="72" y="667" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">              </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">applications, interactive frontends,</tspan></text></g>
+<g><text x="72" y="688" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">              </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">and reliable backend APIs.</tspan></text></g>
+<g><text x="72" y="730" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">[x] game_dev</tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">Exploring game engines, mechanics,</tspan></text></g>
+<g><text x="72" y="751" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">            </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">physics, and scripting workflows</tspan></text></g>
+<g><text x="72" y="772" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">            </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">(e.g. GDScript in Godot).</tspan></text></g>
+<g><text x="72" y="814" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">[x] passion_proj</tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">Creating tools, bots, and fun</tspan></text></g>
+<g><text x="72" y="835" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">open-source applications that solve</tspan></text></g>
+<g><text x="72" y="856" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">real needs (e.g., Discord bots).</tspan></text></g>
+<g><text x="72" y="898" class="system-footer" fill="#242424">active_focus_areas: 4 / 4</text></g>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.71875;0.75;0.96875;1" dur="16s" repeatCount="indefinite"/>
+  <text class="panel-title" x="66" y="492">RESEARCH.NODE / INVESTIGATIONS</text>
+  <g><text x="72" y="520" class="system-head"><tspan fill="#000000">@ecclesyia</tspan><tspan fill="#666666"> ------------------------------------------</tspan></text></g>
+<g><text x="72" y="541" class="system-section" fill="#000000">- RESEARCH.NODE / INVESTIGATIONS -----------------------------------</text></g>
+<g><text x="72" y="562" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">research.primary</tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">Software Architecture</tspan></text></g>
+<g><text x="72" y="583" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">research.themes</tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">Algorithms / Software Development</tspan></text></g>
+<g><text x="72" y="604" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">research.direction</tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">I am currently focusing on exploring</tspan></text></g>
+<g><text x="72" y="625" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                   </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">whatever captures my interest,</tspan></text></g>
+<g><text x="72" y="646" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                   </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">whether it is programming,</tspan></text></g>
+<g><text x="72" y="667" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                   </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">mathematics, data science, or</tspan></text></g>
+<g><text x="72" y="688" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                   </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">mechanics. Deepening my</tspan></text></g>
+<g><text x="72" y="709" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                   </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">understanding of these fields is a</tspan></text></g>
+<g><text x="72" y="730" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                   </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">fundamental part of satisfying my</tspan></text></g>
+<g><text x="72" y="751" class="system-row"><tspan fill="#666666">. </tspan><tspan class="system-key" fill="#000000">                   </tspan><tspan fill="#666666">: ... </tspan><tspan fill="#000000">curiosity and learning journey.</tspan></text></g>
+<g><text x="72" y="793" class="system-footer" fill="#242424">signal.locked &gt; PROFILE / BUILD / SHARE</text></g>
+</g>
 <text x="360" y="1045" text-anchor="middle" class="mono" font-size="10" letter-spacing="1.5" fill="#666666">SOFTWARE ENGINEERING / FULL STACK DEVELOPER / GAME DEVELOPMENT / PASSIONATE PROJECTS</text>
 <rect x="0" y="-70" width="720" height="70" fill="url(#scan)" opacity="0.32"><animateTransform attributeName="transform" type="translate" from="0 -70" to="0 1150" dur="4.5s" repeatCount="indefinite"/></rect>
 <rect x="3" y="3" width="714" height="1074" rx="20" fill="none" stroke="url(#border)" stroke-width="2" opacity="0.76"><animate attributeName="opacity" values="0.5;0.94;0.5" dur="3.4s" repeatCount="indefinite"/></rect>

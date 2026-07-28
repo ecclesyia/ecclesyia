@@ -22,68 +22,28 @@
   <a href="https://github.com/ecclesyia"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-ecclesyia-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
 
-## GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ecclesyia&theme=dark&hide_border=true&background=000000&fire=ffffff&ring=ffffff&currStreakNum=ffffff&sideNums=ffffff&sideLabels=6e6e6e&currStreakLabel=ffffff" alt="GitHub Streak Stats" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ecclesyia&show_icons=true&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&count_private=true" alt="GitHub Stats" />
-</p>
-
-## Tools and Technologies
+### Tools and Technologies
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=kotlin,java,js,py,mysql,godot,html,css,react,git,androidstudio,pycharm,vscode&theme=dark" alt="My Skills" />
 </p>
 
-## Connect
+### Connect
+
+<p align="center"><a href="https://ecclesyia.netlify.app" target="_blank"><img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=netlify&logoColor=white" alt="Portfolio" /></a> <a href="mailto:ecclesiatesnsbusiness@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Email-000000?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a> <a href="https://www.linkedin.com/in/ecclesiates" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a> <a href="https://www.instagram.com/ecclesiates.sihombing/" target="_blank"><img src="https://img.shields.io/badge/Instagram-000000?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a> <a href="https://x.com/ecclesyia" target="_blank"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a></p>
+
+### GitHub Stats
 
 <p align="center">
-  <a href="https://ecclesyia.netlify.app" target="_blank">
-    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=netlify&logoColor=white" alt="Portfolio" />
-  </a>
-  <a href="mailto:ecclesiatesnsbusiness@gmail.com" target="_blank">
-    <img src="https://img.shields.io/badge/Email-000000?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-  <a href="https://www.linkedin.com/in/ecclesiates" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="https://www.instagram.com/ecclesiates.sihombing/" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-000000?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
-  </a>
-  <a href="https://x.com/ecclesyia" target="_blank">
-    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" />
-  </a>
+  <img src="https://streak-stats.demolab.com/?user=ecclesyia&theme=dark&hide_border=true&background=000000&fire=ffffff&ring=ffffff&currStreakNum=ffffff&sideNums=ffffff&sideLabels=6e6e6e&currStreakLabel=ffffff" alt="GitHub Streak Stats" height="220" />
 </p>
-
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ecclesyia&theme=dark&hide_border=true&background=000000&fire=ffffff&ring=ffffff&currStreakNum=ffffff&sideNums=ffffff&sideLabels=6e6e6e&currStreakLabel=ffffff" alt="GitHub Streak Stats" height="160" />
-  <img src="https://github-readme-stats.vercel.app/api?username=ecclesyia&show_icons=true&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&count_private=true" alt="GitHub Stats" height="160" />
+  <img src="https://github-readme-stats-sigma-rosy-28.vercel.app/api?username=ecclesyia&show_icons=true&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&count_private=true" alt="GitHub Stats" height="195" />
+  <img src="https://github-readme-stats-sigma-rosy-28.vercel.app/api/top-langs/?username=ecclesyia&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&layout=compact" alt="Most Used Languages" height="195" />
 </p>
-
-## About Me
-
-I am a Computer Science student at BINUS University specializing in Software Engineering.
-
-I work as a HIMTI Responsi Activist, helping fellow students learn the fundamental in college.
-
-## Current Focus
-
-| Area | What I am exploring |
-| --- | --- |
-| **Software Engineering** | Designing, developing, testing, and maintaining clean and robust software systems. |
-| **Full Stack Developer** | Building responsive web applications, interactive frontends, and reliable backend APIs. |
-| **Game Development** | Exploring game engines, mechanics, physics, and scripting workflows (e.g. GDScript in Godot). |
-| **Passionate Projects** | Creating tools, bots, and fun open-source applications that solve real needs (e.g., Discord bots). |
-
-## Research Direction
-
-I am currently focusing on exploring whatever captures my interest, whether it is programming, mathematics, data science, or mechanics. Deepening my understanding of these fields is a fundamental part of satisfying my curiosity and learning journey.
 
 ---
 
 <p align="center">
-  Dying is easy, young man. Living is harder.
+  "Dying is easy, young man. Living is harder." - george washington
 </p>
