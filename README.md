@@ -22,38 +22,6 @@
   <a href="https://github.com/ecclesyia"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-ecclesyia-0B1220?style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
 
-## About Me
-
-I am a Computer Science student at BINUS University specializing in Software Engineering.
-I work as a HIMTI Responsi Activist, helping fellow students learn the fundamental in college.
-I am currently seeking Software Engineering and Full-Stack Development internship opportunities.
-
-## Current Focus
-
-| Area | What I am exploring |
-| --- | --- |
-| **Software Engineering** | Designing, developing, testing, and maintaining clean and robust software systems. |
-| **Full Stack Developer** | Building responsive web applications, interactive frontends, and reliable backend APIs. |
-| **Game Development** | Exploring game engines, mechanics, physics, and scripting workflows (e.g. GDScript in Godot). |
-| **Passionate Projects** | Creating tools, bots, and fun open-source applications that solve real needs (e.g., Discord bots). |
-
-## Research Direction
-
-I am currently focusing on exploring whatever captures my interest, whether it is programming, mathematics, data science, or mechanics. Deepening my understanding of these fields is a fundamental part of satisfying my curiosity and learning journey.
-
----
-
-## Repository History
-
-The table below shows the distribution of public repositories created per year:
-
-| Year | Repositories Created |
-| :--- | :--- |
-| 2026 | 19 |
-| 2025 | 3 |
-| 2024 | 3 |
-| 2023 | 6 |
-
 ## GitHub Stats
 
 <p align="center">

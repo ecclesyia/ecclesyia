@@ -107,8 +107,11 @@ def update_readme():
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ecclesyia&theme=dark&hide_border=true&background=000000&fire=ffffff&ring=ffffff&currStreakNum=ffffff&sideNums=ffffff&sideLabels=6e6e6e&currStreakLabel=ffffff" alt="GitHub Streak Stats" height="160" />
-  <img src="https://github-readme-stats.vercel.app/api?username=ecclesyia&show_icons=true&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&count_private=true" alt="GitHub Stats" height="160" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ecclesyia&theme=dark&hide_border=true&background=000000&fire=ffffff&ring=ffffff&currStreakNum=ffffff&sideNums=ffffff&sideLabels=6e6e6e&currStreakLabel=ffffff" alt="GitHub Streak Stats" height="220" />
+</p>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=ecclesyia&show_icons=true&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&count_private=true" alt="GitHub Stats" height="195" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ecclesyia&theme=dark&hide_border=true&bg_color=000000&text_color=ffffff&icon_color=ffffff&title_color=ffffff&layout=compact" alt="Most Used Languages" height="195" />
 </p>
 """
 
