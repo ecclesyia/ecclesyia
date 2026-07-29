@@ -49,5 +49,5 @@
 ---
 
 <p align="center">
-  Dying is easy, young man. Living is harder.
+  "Dying is easy, young man. Living is harder." - George Washington
 </p>
