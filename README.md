@@ -50,5 +50,4 @@
 
 <p align="center">
   "Dying is easy, young man. Living is harder." - George Washington
-  "Legacy. What is a legacy? It's planting seeds in a garden you never get to see." - Alexander Hamilton
 </p>
